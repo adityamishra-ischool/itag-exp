@@ -1,0 +1,641 @@
+aditya@tyrionLannister:~$ subl --help
+Sublime Text build 3059
+
+Usage: sublime_text [arguments] [files]         edit the given files
+   or: sublime_text [arguments] [directories]   open the given directories
+
+Arguments:
+  --project <project>: Load the given project
+  --command <command>: Run the given command
+  -n or --new-window:  Open a new window
+  -a or --add:         Add folders to the current window
+  -w or --wait:        Wait for the files to be closed before returning
+  -b or --background:  Don't activate the application
+  -h or --help:        Show help (this message) and exit
+  -v or --version:     Show version and exit
+
+Filenames may be given a :line or :line:column suffix to open at a specific
+location.
+
+aditya@tyrionLannister:~$ clear
+
+aditya@tyrionLannister:~$ cd berkeleyhackers
+aditya@tyrionLannister:~/berkeleyhackers$ cd itagnew
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ mkdir app
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ cd app
+aditya@tyrionLannister:~/berkeleyhackers/itagnew/app$ touch views.py
+aditya@tyrionLannister:~/berkeleyhackers/itagnew/app$ cd ..
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ la
+app        databasem2.py  sqlalchemy_declarative.py  templates
+app.py     databasem.py   sqlalchemy_example.db
+config.py  for.py         sql-alchemy_notes.txt
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ mkdir static
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ mkdir tmp
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ ls -lrt
+total 48
+drwxrwxr-x 2 aditya aditya 4096 Aug 18 14:54 templates
+-rw-r--r-- 1 aditya aditya 3072 Aug 18 15:14 sqlalchemy_example.db
+-rw-rw-r-- 1 aditya aditya 1094 Aug 18 16:09 databasem2.py
+-rw-rw-r-- 1 aditya aditya  340 Aug 19 10:36 sql-alchemy_notes.txt
+-rw-rw-r-- 1 aditya aditya  354 Aug 19 13:32 for.py
+-rw-rw-r-- 1 aditya aditya 1321 Aug 20 19:14 databasem.py
+-rw-rw-r-- 1 aditya aditya 1369 Aug 20 19:22 sqlalchemy_declarative.py
+-rw-rw-r-- 1 aditya aditya   55 Aug 21 18:01 config.py
+-rw-rw-r-- 1 aditya aditya  102 Aug 21 18:05 app.py
+drwxrwxr-x 2 aditya aditya 4096 Aug 21 18:06 app
+drwxrwxr-x 2 aditya aditya 4096 Aug 21 18:09 static
+drwxrwxr-x 2 aditya aditya 4096 Aug 21 18:09 tmp
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ cd ..
+aditya@tyrionLannister:~/berkeleyhackers$ cd ../bootcamp
+aditya@tyrionLannister:~/bootcamp$ mkdir pkg1
+aditya@tyrionLannister:~/bootcamp$ touch pkg1/__init.py__
+aditya@tyrionLannister:~/bootcamp$ touch ^C
+aditya@tyrionLannister:~/bootcamp$ touch pkg1/thispkg.py
+aditya@tyrionLannister:~/bootcamp$ cd ../berkeleyhackers/itagnew/
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ python run.py
+python: can't open file 'run.py': [Errno 2] No such file or directory
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ ls
+app            databasem.py               sqlalchemy_example.db  templates
+config.py      for.py                     sql-alchemy_notes.txt  tmp
+databasem2.py  sqlalchemy_declarative.py  static
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ mv app/run.py
+mv: missing destination file operand after `app/run.py'
+Try `mv --help' for more information.
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ mv app/run.py .
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ ls
+app            databasem.py  sqlalchemy_declarative.py  static
+config.py      for.py        sqlalchemy_example.db      templates
+databasem2.py  run.py        sql-alchemy_notes.txt      tmp
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ python run.py
+ * Running on http://127.0.0.1:5000/
+ * Restarting with reloader
+ * Detected change in '/home/aditya/berkeleyhackers/itagnew/app/__init__.py', reloading
+ * Restarting with reloader
+127.0.0.1 - - [21/Aug/2014 18:59:21] "GET / HTTP/1.1" 404 -
+127.0.0.1 - - [21/Aug/2014 18:59:21] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Aug/2014 18:59:21] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Aug/2014 18:59:45] "GET / HTTP/1.1" 404 -
+ * Detected change in '/home/aditya/berkeleyhackers/itagnew/app/__init__.py', reloading
+ * Restarting with reloader
+ * Detected change in '/home/aditya/berkeleyhackers/itagnew/app/views.py', reloading
+ * Restarting with reloader
+Traceback (most recent call last):
+  File "run.py", line 4, in <module>
+    from app import app
+  File "/home/aditya/berkeleyhackers/itagnew/app/__init__.py", line 4, in <module>
+    from app import views
+  File "/home/aditya/berkeleyhackers/itagnew/app/views.py", line 1, in <module>
+    from app import app
+ImportError: cannot import name app
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ python run.py
+Traceback (most recent call last):
+  File "run.py", line 4, in <module>
+    from app import app
+  File "/home/aditya/berkeleyhackers/itagnew/app/__init__.py", line 4, in <module>
+    import views
+  File "/home/aditya/berkeleyhackers/itagnew/app/views.py", line 1, in <module>
+    from app import app
+ImportError: cannot import name app
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ python run.py
+ * Running on http://127.0.0.1:5000/
+ * Restarting with reloader
+127.0.0.1 - - [21/Aug/2014 19:06:09] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 12:52:49] "GET / HTTP/1.1" 200 -
+ * Detected change in '/home/aditya/berkeleyhackers/itagnew/app/__init__.py', reloading
+ * Restarting with reloader
+ * Detected change in 'run.py', reloading
+ * Restarting with reloader
+^Caditya@tyrionLannister:~/berkeleyhackers/itagnew$ ls -lrt
+total 52
+drwxrwxr-x 2 aditya aditya 4096 Aug 18 14:54 templates
+-rw-r--r-- 1 aditya aditya 3072 Aug 18 15:14 sqlalchemy_example.db
+-rw-rw-r-- 1 aditya aditya 1094 Aug 18 16:09 databasem2.py
+-rw-rw-r-- 1 aditya aditya  340 Aug 19 10:36 sql-alchemy_notes.txt
+-rw-rw-r-- 1 aditya aditya  354 Aug 19 13:32 for.py
+-rw-rw-r-- 1 aditya aditya 1321 Aug 20 19:14 databasem.py
+-rw-rw-r-- 1 aditya aditya 1369 Aug 20 19:22 sqlalchemy_declarative.py
+-rw-rw-r-- 1 aditya aditya   55 Aug 21 18:01 config.py
+drwxrwxr-x 2 aditya aditya 4096 Aug 21 18:09 static
+drwxrwxr-x 2 aditya aditya 4096 Aug 21 18:09 tmp
+-rw-rw-r-- 1 aditya aditya  245 Aug 22 12:52 impnotes.txt
+drwxrwxr-x 2 aditya aditya 4096 Aug 22 13:05 app
+-rw-rw-r-- 1 aditya aditya  172 Aug 22 13:05 run.py
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ chmod a+x run.py
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ ./run.py
+bash: ./run.py: flask/bin/python: bad interpreter: No such file or directory
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ python virtualenv.py flask
+New python executable in flask/bin/python
+Installing setuptools................................done.
+Installing pip.....................done.
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ ls -lrt
+total 268
+drwxrwxr-x 2 aditya aditya   4096 Aug 18 14:54 templates
+-rw-r--r-- 1 aditya aditya   3072 Aug 18 15:14 sqlalchemy_example.db
+-rw-rw-r-- 1 aditya aditya   1094 Aug 18 16:09 databasem2.py
+-rw-rw-r-- 1 aditya aditya    340 Aug 19 10:36 sql-alchemy_notes.txt
+-rw-rw-r-- 1 aditya aditya    354 Aug 19 13:32 for.py
+-rw-rw-r-- 1 aditya aditya   1321 Aug 20 19:14 databasem.py
+-rw-rw-r-- 1 aditya aditya   1369 Aug 20 19:22 sqlalchemy_declarative.py
+-rw-rw-r-- 1 aditya aditya     55 Aug 21 18:01 config.py
+drwxrwxr-x 2 aditya aditya   4096 Aug 21 18:09 static
+drwxrwxr-x 2 aditya aditya   4096 Aug 21 18:09 tmp
+-rw-rw-r-- 1 aditya aditya    245 Aug 22 12:52 impnotes.txt
+drwxrwxr-x 2 aditya aditya   4096 Aug 22 13:05 app
+-rwxrwxr-x 1 aditya aditya    177 Aug 22 13:06 run.py
+-rw-rw-r-- 1 aditya aditya 115012 Aug 22 13:07 virtualenv.py
+-rw-rw-r-- 1 aditya aditya  97364 Aug 22 13:07 virtualenv.pyc
+drwxrwxr-x 6 aditya aditya   4096 Aug 22 13:07 flask
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ ./run.py
+Traceback (most recent call last):
+  File "./run.py", line 4, in <module>
+    from app import app
+  File "/home/aditya/berkeleyhackers/itagnew/app/__init__.py", line 3, in <module>
+    from flask import Flask
+ImportError: No module named flask
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ ins.sh
+ins.sh: command not found
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ rm flask
+rm: cannot remove `flask': Is a directory
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ rm -r flask
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ ls
+app            for.py                     sqlalchemy_example.db  tmp
+config.py      impnotes.txt               sql-alchemy_notes.txt  virtualenv.py
+databasem2.py  run.py                     static                 virtualenv.pyc
+databasem.py   sqlalchemy_declarative.py  templates
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ ./run.py
+bash: ./run.py: flask/bin/python: bad interpreter: No such file or directory
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ python run.py
+ * Running on http://127.0.0.1:5000/
+ * Restarting with reloader
+127.0.0.1 - - [22/Aug/2014 13:14:29] "GET / HTTP/1.1" 200 -
+ * Detected change in '/home/aditya/berkeleyhackers/itagnew/app/views.py', reloading
+ * Restarting with reloader
+ * Detected change in '/home/aditya/berkeleyhackers/itagnew/app/views.py', reloading
+ * Restarting with reloader
+ * Detected change in '/home/aditya/berkeleyhackers/itagnew/app/views.py', reloading
+ * Restarting with reloader
+127.0.0.1 - - [22/Aug/2014 13:27:22] "GET / HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/aditya/berkeleyhackers/itagnew/app/views.py", line 7, in index
+    return render_template("index.html",
+NameError: global name 'render_template' is not defined
+127.0.0.1 - - [22/Aug/2014 13:27:22] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 13:27:22] "GET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 13:27:22] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 13:27:22] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 13:27:23] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 13:27:23] "GET /?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+ * Detected change in '/home/aditya/berkeleyhackers/itagnew/app/views.py', reloading
+ * Restarting with reloader
+127.0.0.1 - - [22/Aug/2014 13:28:12] "GET / HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/aditya/berkeleyhackers/itagnew/app/views.py", line 10, in index
+    user = user)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 127, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 791, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 765, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 64, in get_source
+    raise TemplateNotFound(template)
+TemplateNotFound: index.html
+127.0.0.1 - - [22/Aug/2014 13:28:12] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 13:28:12] "GET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 13:28:12] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 13:28:12] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 13:28:12] "GET /?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 13:28:12] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+ * Detected change in '/home/aditya/berkeleyhackers/itagnew/app/views.py', reloading
+ * Restarting with reloader
+ * Detected change in '/home/aditya/berkeleyhackers/itagnew/app/views.py', reloading
+ * Restarting with reloader
+ * Detected change in '/home/aditya/berkeleyhackers/itagnew/app/views.py', reloading
+ * Restarting with reloader
+^Caditya@tyrionLannister:~/berkeleyhackers/itagnew$ python run.py
+ * Running on http://127.0.0.1:5000/
+ * Restarting with reloader
+127.0.0.1 - - [22/Aug/2014 13:31:35] "GET / HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/aditya/berkeleyhackers/itagnew/app/views.py", line 9, in index
+    user = user)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 127, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 791, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 765, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 64, in get_source
+    raise TemplateNotFound(template)
+TemplateNotFound: index.html
+127.0.0.1 - - [22/Aug/2014 13:31:35] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 13:31:35] "GET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 13:31:35] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 13:31:35] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 13:31:35] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 13:31:35] "GET /?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 13:31:59] "GET /?__debugger__=yes&cmd=source&frm=26211536&s=EGsIAbzN8gOfxHpQS5LG HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 13:32:19] "GET /?__debugger__=yes&cmd=source&frm=26211216&s=EGsIAbzN8gOfxHpQS5LG HTTP/1.1" 200 -
+ * Detected change in '/home/aditya/berkeleyhackers/itagnew/app/views.py', reloading
+ * Restarting with reloader
+127.0.0.1 - - [22/Aug/2014 13:35:20] "GET / HTTP/1.1" 200 -
+ * Detected change in '/home/aditya/berkeleyhackers/itagnew/app/views.py', reloading
+ * Restarting with reloader
+127.0.0.1 - - [22/Aug/2014 13:37:23] "GET / HTTP/1.1" 200 -
+ * Detected change in '/home/aditya/berkeleyhackers/itagnew/app/__init__.py', reloading
+ * Restarting with reloader
+ * Detected change in '/home/aditya/berkeleyhackers/itagnew/app/views.py', reloading
+ * Restarting with reloader
+ * Detected change in '/home/aditya/berkeleyhackers/itagnew/app/views.py', reloading
+ * Restarting with reloader
+ * Detected change in '/home/aditya/berkeleyhackers/itagnew/app/views.py', reloading
+ * Restarting with reloader
+ * Detected change in '/home/aditya/berkeleyhackers/itagnew/app/views.py', reloading
+ * Restarting with reloader
+127.0.0.1 - - [22/Aug/2014 14:03:43] "GET /login HTTP/1.1" 200 -
+ * Detected change in 'run.py', reloading
+ * Restarting with reloader
+127.0.0.1 - - [22/Aug/2014 14:05:07] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:05:12] "GET /login HTTP/1.1" 200 -
+ * Detected change in '/home/aditya/berkeleyhackers/itagnew/app/views.py', reloading
+ * Restarting with reloader
+127.0.0.1 - - [22/Aug/2014 14:06:14] "GET /login HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/aditya/berkeleyhackers/itagnew/app/views.py", line 17, in login
+    form = form)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 127, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 791, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 765, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 125, in load
+    code = environment.compile(source, name, filename)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 554, in compile
+    self.handle_exception(exc_info, source_hint=source)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 742, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/aditya/berkeleyhackers/itagnew/app/templates/login.html", line 15, in template
+    {% endblock %}
+TemplateSyntaxError: Encountered unknown tag 'endblock'.
+127.0.0.1 - - [22/Aug/2014 14:06:14] "GET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:06:14] "GET /login?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:06:14] "GET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:06:14] "GET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:06:14] "GET /login?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:06:14] "GET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:06:25] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:06:59] "GET /login1 HTTP/1.1" 404 -
+127.0.0.1 - - [22/Aug/2014 14:07:02] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:08:59] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:09:20] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:09:23] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:09:52] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:09:54] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:10:11] "GET /login HTTP/1.1" 200 -
+ * Detected change in '/home/aditya/berkeleyhackers/itagnew/app/views.py', reloading
+ * Restarting with reloader
+ * Detected change in '/home/aditya/berkeleyhackers/itagnew/app/views.py', reloading
+ * Restarting with reloader
+127.0.0.1 - - [22/Aug/2014 14:10:49] "GET /login HTTP/1.1" 200 -
+ * Detected change in '/home/aditya/berkeleyhackers/itagnew/app/views.py', reloading
+ * Restarting with reloader
+ * Detected change in '/home/aditya/berkeleyhackers/itagnew/app/views.py', reloading
+ * Restarting with reloader
+ * Detected change in '/home/aditya/berkeleyhackers/itagnew/app/views.py', reloading
+ * Restarting with reloader
+ * Detected change in '/home/aditya/berkeleyhackers/itagnew/app/views.py', reloading
+ * Restarting with reloader
+ * Detected change in '/home/aditya/berkeleyhackers/itagnew/app/views.py', reloading
+ * Restarting with reloader
+Traceback (most recent call last):
+  File "run.py", line 5, in <module>
+    from app import views
+  File "/home/aditya/berkeleyhackers/itagnew/app/views.py", line 23, in <module>
+    @app.route('/addplayer')
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1013, in decorator
+    self.add_url_rule(rule, endpoint, f, **options)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 62, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 984, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: adminhome
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ python run.py
+Traceback (most recent call last):
+  File "run.py", line 5, in <module>
+    from app import views
+  File "/home/aditya/berkeleyhackers/itagnew/app/views.py", line 23, in <module>
+    @app.route('/addplayer')
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1013, in decorator
+    self.add_url_rule(rule, endpoint, f, **options)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 62, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 984, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: adminhome
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ python run.py
+ * Running on http://127.0.0.1:5000/
+ * Restarting with reloader
+127.0.0.1 - - [22/Aug/2014 14:52:23] "GET /adminpage HTTP/1.1" 404 -
+127.0.0.1 - - [22/Aug/2014 14:52:32] "GET /adminhome HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:52:51] "GET /adminhome HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:53:24] "GET /adminhome HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:53:25] "GET /adminhome HTTP/1.1" 200 -
+^Caditya@tyrionLannister:~/berkeleyhackers/itagnew$ python run.py
+ * Running on http://127.0.0.1:5000/
+ * Restarting with reloader
+127.0.0.1 - - [22/Aug/2014 14:53:33] "GET /adminhome HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:53:36] "GET /adminhome HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:55:18] "GET /adminhome HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:55:31] "GET /adminhome HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:55:56] "GET /updateit HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/aditya/berkeleyhackers/itagnew/app/views.py", line 28, in updateit
+    return render_template('updateit.html')
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 127, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 791, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 765, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 64, in get_source
+    raise TemplateNotFound(template)
+TemplateNotFound: updateit.html
+127.0.0.1 - - [22/Aug/2014 14:55:56] "GET /updateit?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:55:56] "GET /updateit?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:55:56] "GET /updateit?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:55:56] "GET /updateit?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:55:56] "GET /updateit?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:55:56] "GET /updateit?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:56:59] "GET /updateit HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:57:09] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:57:42] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:57:46] "GET /adminhome HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:57:51] "GET /updateit HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:57:54] "GET /addplayer HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/aditya/berkeleyhackers/itagnew/app/views.py", line 25, in addplayer
+    return render_template('addplayer.html')
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 127, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 791, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 765, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 64, in get_source
+    raise TemplateNotFound(template)
+TemplateNotFound: addplayer.html
+127.0.0.1 - - [22/Aug/2014 14:57:54] "GET /addplayer?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:57:54] "GET /addplayer?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:57:54] "GET /addplayer?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:57:54] "GET /addplayer?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:57:54] "GET /addplayer?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:57:54] "GET /addplayer?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:58:37] "GET /addplayer HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/aditya/berkeleyhackers/itagnew/app/views.py", line 25, in addplayer
+    return render_template('addplayer.html')
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 128, in render_template
+    context, ctx.app)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 110, in _render
+    rv = template.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 969, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 742, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/aditya/berkeleyhackers/itagnew/app/templates/addplayer.html", line 8, in top-level template code
+    <h1>Hello, {{user.nickname}}!</h1>
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 397, in getattr
+    return getattr(obj, attribute)
+UndefinedError: 'user' is undefined
+127.0.0.1 - - [22/Aug/2014 14:58:37] "GET /addplayer?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:58:37] "GET /addplayer?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:58:37] "GET /addplayer?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:58:37] "GET /addplayer?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:58:38] "GET /addplayer?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:58:38] "GET /addplayer?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+127.0.0.1 - - [22/Aug/2014 14:59:15] "GET /addplayer HTTP/1.1" 200 -
+^Caditya@tyrionLannister:~/berkeleyhackers/itagnew$ cd .
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ cd ..
+aditya@tyrionLannister:~/berkeleyhackers$ ls
+itag  itagnew
+aditya@tyrionLannister:~/berkeleyhackers$ cd itagnew
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ git remote add origin https://github.com/adityamishra-ischool/itag-exp.git
+fatal: Not a git repository (or any of the parent directories): .git
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ git init
+Initialized empty Git repository in /home/aditya/berkeleyhackers/itagnew/.git/
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ git remote add origin https://github.com/adityamishra-ischool/itag-exp.git
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ git push -u origin master
+Username for 'https://github.com': adityamishra-ischool
+Password for 'https://adityamishra-ischool@github.com': 
+fatal: Authentication failed
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ git push -u origin master
+Username for 'https://github.com': adityamishra=ischool
+Password for 'https://adityamishra=ischool@github.com': 
+asfatal: Authentication failed
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ as
+    
+
+
+^C
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ git push -u origin master
+Username for 'https://github.com': adityamishra-ischool
+Password for 'https://adityamishra-ischool@github.com': 
+error: src refspec master does not match any.
+error: failed to push some refs to 'https://github.com/adityamishra-ischool/itag-exp.git'
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ git commit -m 'commit'
+# On branch master
+#
+# Initial commit
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	a.out
+#	app/
+#	config.py
+#	config.pyc
+#	databasem.py
+#	databasem2.py
+#	for.py
+#	impnotes.txt
+#	models/
+#	run.py
+#	sql-alchemy_notes.txt
+#	sqlalchemy_declarative.py
+#	sqlalchemy_declarative.pyc
+#	sqlalchemy_example.db
+#	sqlalchemy_examplenew.db
+#	virtualenv.py
+#	virtualenv.pyc
+nothing added to commit but untracked files present (use "git add" to track)
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ git add .
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ git commit -m 'commit'
+[master (root-commit) 4108c00] commit
+ 26 files changed, 2856 insertions(+)
+ create mode 100644 a.out
+ create mode 100644 app/__init__.py
+ create mode 100644 app/__init__.pyc
+ create mode 100644 app/forms.py
+ create mode 100644 app/forms.pyc
+ create mode 100644 app/ins.sh
+ create mode 100644 app/templates/addplayer.html
+ create mode 100644 app/templates/adminpage.html
+ create mode 100644 app/templates/base.html
+ create mode 100644 app/templates/index.html
+ create mode 100644 app/templates/login.html
+ create mode 100644 app/templates/updateit.html
+ create mode 100644 app/views.py
+ create mode 100644 app/views.pyc
+ create mode 100644 config.py
+ create mode 100644 config.pyc
+ create mode 100644 databasem.py
+ create mode 100644 databasem2.py
+ create mode 100644 for.py
+ create mode 100644 impnotes.txt
+ create mode 100644 models/models.py
+ create mode 100755 run.py
+ create mode 100644 sql-alchemy_notes.txt
+ create mode 100644 sqlalchemy_declarative.py
+ create mode 100644 sqlalchemy_declarative.pyc
+ create mode 100644 sqlalchemy_example.db
+ create mode 100644 sqlalchemy_examplenew.db
+ create mode 100644 virtualenv.py
+ create mode 100644 virtualenv.pyc
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ git push -u origin master
+Username for 'https://github.com': adityamishra-ischool
+Password for 'https://adityamishra-ischool@github.com': 
+To https://github.com/adityamishra-ischool/itag-exp.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+aditya@tyrionLannister:~/berkeleyhackers/itagnew$ 
