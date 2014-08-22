@@ -1,0 +1,7 @@
+here is the structure ---
+
+we run run.py... 
+
+run.py imports app... app calls init.py and initialises the application...here is where the app object is instantiated, and made ready for the next use
+
+it also imports views and inherits the routing
